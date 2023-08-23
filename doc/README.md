@@ -304,8 +304,8 @@ Install TalkiePi with:
 $cd $GOPATH/src
 $go get periph.io/x/cmd/...
 $go get github.com/dchote/gopus
-$go get github.com/lersakr/talkiepi
-$go build -o $GOPATH/bin/talkiepi $GOPATH/src/github.com/lersakr/talkiepi/cmd/talkiepi/main.go
+$go get github.com/lersakk/talkiepi
+$go build -o $GOPATH/bin/talkiepi $GOPATH/src/github.com/lersakk/talkiepi/cmd/talkiepi/main.go
 ~~~
 
 The RPi Zero needs libopenal complied without ARM NEON support. These packages can be found in the [workarounds](https://github.com/CustomMachines/talkiepi/blob/master/workarounds) directory of this repo. They can be installed over the existing libopenal libraries.
