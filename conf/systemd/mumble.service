@@ -7,7 +7,7 @@ After = multi-user.target
 User = pi
 Group = pi
 Type = simple
-ExecStart = /home/pi/go/bin/talkiepi -server YOUR_SERVER:PORT -username YOUR_USERNAME -certificate /home/pi/mumble.pem -channel Root
+ExecStart = /home/pi/go/bin/talkiepi -server YOUR_SERVER:64738 -username Talkiepi_1 -certificate /home/pi/mumble.pem -channel Root
 Restart = always
 RestartSec = 5
 
