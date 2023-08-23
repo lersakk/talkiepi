@@ -81,6 +81,13 @@ raspberrypi login: pi
 password: raspberry
 ~~~
 
+## Change Mirror
+~~~
+sudo nano /etc/apt/sources.list
+deb http://archive.raspbian.org/raspbian/ bullseye main contrib non-free rpi
+~~~
+
+
 Update repositories and upgrade software with:
 
 ~~~
@@ -125,7 +132,9 @@ Add the following lines above exit 0:
 Install Git with this command:
 
 ~~~
-$sudo apt install git
+sudo apt install git
+sudo apt-get install libopus-dev
+sudo apt-get install libopenal-dev
 ~~~
 
 ## SeeedStudio ReSpeaker 2-Mic HAT
@@ -263,6 +272,8 @@ Add the following text to the end of the file:
 export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/go/bin
+export PKG_CONFIG_PATH=/path/to/opus/pkgconfig:$PKG_CONFIG_PATH
 ~~~
 
 Reload the configuration with:
@@ -279,14 +290,14 @@ Install TalkiePi with:
 $cd $GOPATH/src
 $go get periph.io/x/periph/cmd/...
 $go get github.com/dchote/gopus
-$go get github.com/CustomMachines/talkiepi
-$go build -o $GOPATH/bin/talkiepi $GOPATH/src/github.com/CustomMachines/talkiepi/cmd/talkiepi/main.go
+$go get github.com/lersakr/talkiepi
+$go build -o $GOPATH/bin/talkiepi $GOPATH/src/github.com/lersakr/talkiepi/cmd/talkiepi/main.go
 ~~~
 
 The RPi Zero needs libopenal complied without ARM NEON support. These packages can be found in the [workarounds](https://github.com/CustomMachines/talkiepi/blob/master/workarounds) directory of this repo. They can be installed over the existing libopenal libraries.
 
 ~~~
-$cd ~/go/src/github.com/CustomMachines/talkiepi/workarounds
+$cd ~/go/src/github.com/lersakr/talkiepi/workarounds
 $sudo apt install ./libopenal-dev_1.17.2-4_armhf.deb
 $sudo apt install ./libopenal1_1.17.2-4_armhf.deb
 $sudo apt install ./libopenal-data_1.17.2-4_all.deb
@@ -324,7 +335,7 @@ $cat nopasskey.pem cert.pem > mumble.pem
 
 First test the TalkiePi application with the following command, replacing **YOUR_SERVER:PORT** and **YOUR_USERNAME** with your Mumble server credentials:
 ~~~
-$$GOPATH/bin/talkiepi -server YOUR_SERVER:PORT -username YOUR_USERNAME -certificate /home/pi/mumble.pem -channel Root
+$$GOPATH/bin/talkiepi -server YOUR_SERVER:64738 -username TalkiePi_1 -certificate /home/pi/mumble.pem -channel Root
 ~~~
 
 To quit the application press (CTRL+C).
@@ -333,7 +344,7 @@ If all is well the Systemd service can be created. Copy the service file to the 
 
 ~~~
 $cd
-$sudo cp /home/pi/go/src/github.com/CustomMachines/talkiepi/conf/systemd/mumble.service /etc/systemd/system/mumble.service
+$sudo cp /home/pi/go/src/github.com/lersakr/talkiepi/conf/systemd/mumble.service /etc/systemd/system/mumble.service
 ~~~
 
 Edit the service file with:
