@@ -260,7 +260,7 @@ rm go1.16.15.linux-armv6l.tar.gz
 You can check you Golang version with:
 ~~~
 $go version
-go version go1.15.2 linux/arm
+go version go1.16.15 linux/arm
 ~~~
 
 Setup Golang with:
