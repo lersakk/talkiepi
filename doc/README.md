@@ -305,6 +305,8 @@ $cd $GOPATH/src
 $go get periph.io/x/cmd/...
 $go get github.com/dchote/gopus
 $go get github.com/lersakk/talkiepi
+$go mod init github.com/lersakk/talkiepi
+$git clone https://github.com/lersakk/talkiepi.git /home/pi/go/src/github.com/lersakk/talkiepi
 $go build -o $GOPATH/bin/talkiepi $GOPATH/src/github.com/lersakk/talkiepi/cmd/talkiepi/main.go
 ~~~
 
@@ -358,7 +360,7 @@ If all is well the Systemd service can be created. Copy the service file to the 
 
 ~~~
 $cd
-$sudo cp /home/pi/go/src/github.com/lersakr/talkiepi/conf/systemd/mumble.service /etc/systemd/system/mumble.service
+$sudo cp /home/pi/go/src/github.com/lersakk/talkiepi/conf/systemd/mumble.service /etc/systemd/system/mumble.service
 ~~~
 
 Edit the service file with:
