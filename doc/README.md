@@ -20,15 +20,12 @@ TalkiePi will also accept arguments for `-password`, `-insecure`, `-certificate`
 
 ## Install Operating System
 
-Download the latest version of [Raspbian Lite](https://www.raspberrypi.org/downloads/raspbian/); older versions available [here](http://downloads.raspberrypi.org/raspbian_lite/images/)
-
+Download the latest version of [Raspbian Lite](https://downloads.raspberrypi.org/raspbian_lite/images/raspbian_lite-2019-04-09/); 
 These instructions have been tested with:
 
 ~~~
 Based on: Debian Stretch Lite
-Version: November 2018
-Release date: 2018-11-13
-Kernel version: 4.14
+Release date: 2019-04-8
 ~~~
 
 Write the image to a miroSD card with [Etcher](https://etcher.io/). Note, after the write is complete Windows will complain that the microSD card needs to be formatted. This message can be ignored. It is just that Windows cannot read the Linux partitions, but Windows can read the **Boot** partition which is the only one we need access to. 
